@@ -1,5 +1,8 @@
 package com.example.kiteflutter;
 
+import static com.example.kiteflutter.GameEngine.*;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -36,13 +39,14 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         gameOver = false;
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int action = event.getAction();
         if (action == MotionEvent.ACTION_DOWN) {
             // Set the game state to running and make the kite jump
             if (!gameOver) {
-                AppConstants.getGameEngine().gameState = 1;
+                gameState = 1;
                 AppConstants.getGameEngine().kite.setVelocity(AppConstants.VELOCITY_WHEN_JUMPED);
             } else {
                 // If game over, restart the game
@@ -92,13 +96,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             pipeGenerator.updatePipes();
             if (pipeGenerator.checkCollisions(AppConstants.getGameEngine().kite)) {
                 gameOver = true;
-                AppConstants.getGameEngine().gameState = 2; // Game Over state
+                gameState = 2; // Game Over state
             }
 
             // Check if the kite has passed through pipes
             if (pipeGenerator.isPassed(AppConstants.getGameEngine().kite)) {
                 score++;
-                AppConstants.getGameEngine().gameState = 1;
+                GameEngine.gameState = 1;
             }
         }
     }
@@ -116,8 +120,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         // Draw "Game Over" if the game is over
         if (gameOver) {
-            canvas.drawText("Game Over", AppConstants.SCREEN_WIDTH / 2 - 200, AppConstants.SCREEN_HEIGHT / 2, paint);
-            canvas.drawText("Tap to Restart", AppConstants.SCREEN_WIDTH / 2 - 250, AppConstants.SCREEN_HEIGHT / 2 + 100, paint);
+            canvas.drawText("Game Over", (float) AppConstants.SCREEN_WIDTH / 2 - 200, (float) AppConstants.SCREEN_HEIGHT / 2, paint);
+            canvas.drawText("Tap to Restart", (float) AppConstants.SCREEN_WIDTH / 2 - 250, (float) AppConstants.SCREEN_HEIGHT / 2 + 100, paint);
         }
     }
 
@@ -127,7 +131,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         AppConstants.getGameEngine().kite.setY(AppConstants.SCREEN_HEIGHT / 2 - AppConstants.getBitmapBank().getKiteHeight() / 2);
         AppConstants.getGameEngine().kite.setVelocity(0);
         pipeGenerator.resetPipes();
-        AppConstants.getGameEngine().gameState = 0; // Reset to initial state
+        GameEngine.gameState = 0; // Reset to initial state
     }
 
     // Pause the game
@@ -147,7 +151,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     // GameThread class to manage game updates and rendering
     private class GameThread extends Thread {
-        private SurfaceHolder surfaceHolder;
+        public final SurfaceHolder surfaceHolder;
         private boolean running;
 
         public GameThread(SurfaceHolder holder) {

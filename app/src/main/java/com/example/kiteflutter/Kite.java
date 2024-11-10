@@ -7,16 +7,7 @@ import android.graphics.Paint;
 public class Kite {
     private int kiteX, kiteY, currentFrame, velocity;
     public static int maxFrame;
-    private Bitmap kiteBitmap;
-    public Kite() {
-        // Initialize kite with default bitmap or set it later
-        kiteBitmap = AppConstants.getBitmapBank().getKite(0); // You can choose a default bitmap or the first frame
-        kiteX = AppConstants.SCREEN_WIDTH / 2 - AppConstants.getBitmapBank().getKiteWidth() / 2;
-        kiteY = AppConstants.SCREEN_HEIGHT / 2 - AppConstants.getBitmapBank().getKiteHeight() / 2;
-        currentFrame = 0;
-        maxFrame = 3;
-        velocity = 0;
-    }
+    private final Bitmap kiteBitmap;
 
     // Constructor to initialize the kite's position and other properties, with a Bitmap parameter
     public Kite(Bitmap kiteBitmap) {
@@ -51,10 +42,6 @@ public class Kite {
 
     public int getY() {
         return kiteY;
-    }
-
-    public void setX(int kiteX) {
-        this.kiteX = kiteX;
     }
 
     public void setY(int kiteY) {

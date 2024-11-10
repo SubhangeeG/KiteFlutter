@@ -13,7 +13,6 @@ public class AppConstants {
     static int gravity;
     static int VELOCITY_WHEN_JUMPED;
     public static final int PIPE_GAP = 300; // Set the gap between the pipes
-    public static final int PIPE_WIDTH = 100; // Set the width of the pipe
 
     public static void initialization(Context context){
         setScreenSize(context);  // Set dynamic screen size

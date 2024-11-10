@@ -8,8 +8,8 @@ import android.graphics.Paint;
 
 
 public class PipeGenerator {
-    private List<Pipe> pipes;
-    private Random random;
+    private final List<Pipe> pipes;
+    private final Random random;
 
     public PipeGenerator() {
         pipes = new ArrayList<>();
@@ -26,7 +26,7 @@ public class PipeGenerator {
         // Remove pipes that have moved off-screen
         for (int i = 0; i < pipes.size(); i++) {
             if (pipes.get(i).getX() < 0) {
-                pipes.remove(i);
+                Pipe remove = pipes.remove(i);
             }
         }
 

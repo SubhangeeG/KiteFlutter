@@ -43,11 +43,4 @@ public class MainActivity extends AppCompatActivity {
         finish();  // Optional: Only use this if you don’t want to return to MainActivity
     }
 
-    // Method to restart the game from MainActivity if needed
-    public void restartGame() {
-        // Reset the game state, score, and clear the pipes by calling methods in GameEngine
-        gameEngine.setGameState(0); // Reset the game state
-        gameEngine.score = 0; // Reset the score
-        gameEngine.pipeGenerator.resetPipes(); // Clear the pipes (assuming PipeGenerator has a clear method)
-    }
 }

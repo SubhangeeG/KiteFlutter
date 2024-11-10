@@ -63,24 +63,6 @@ public class BitmapBank {
         return background != null ? background.getHeight() : 0;
     }
 
-    // Methods for pipe images
-    public Bitmap getPipeTop() {
-        return pipeTop;
-    }
-
-    public Bitmap getPipeBottom() {
-        return pipeBottom;
-    }
-
-    // Methods for game over screen and score background
-    public Bitmap getGameOver() {
-        return gameOver;
-    }
-
-    public Bitmap getScoreBackground() {
-        return scoreBackground;
-    }
-
     // Method to get the width of the pipe images (both top and bottom have the same width)
     public int getPipeWidth() {
         return pipeTop != null ? pipeTop.getWidth() : 0; // Assuming both pipes have the same width

@@ -53,37 +53,14 @@ public class GameEngine {
         canvas.drawBitmap(AppConstants.getBitmapBank().getKite(currentFrame), kite.getX(), kite.getY(), null);
 
         currentFrame++;
-        if (currentFrame > kite.maxFrame) {
+        if (currentFrame > Kite.maxFrame) {
             currentFrame = 0;
         }
         kite.setCurrentFrame(currentFrame);
     }
 
-    // Update and draw the pipes, check for collision, and update score
-    public void updateAndDrawPipes(Canvas canvas) {
-        if (gameState == 1) {  // If the game is running
-            pipeGenerator.updatePipes();  // Update pipe positions and states
-            pipeGenerator.drawPipes(canvas, paint);  // Pass the Paint object to the drawPipes method
-
-            // Check if the kite has passed the pipes
-            if (pipeGenerator.isPassed(kite)) {
-                score++;  // Increase score when the kite successfully passes through pipes
-            }
-
-            // Check for collision with pipes
-            if (pipeGenerator.checkCollisions(kite)) {
-                gameState = 2;  // Game Over state if collision is detected
-            }
-        }
-    }
-
-    // Getter for the current score
-    public int getScore() {
-        return score;
-    }
-
     // Setter for the game state (useful for game over state and restarting)
     public void setGameState(int gameState) {
-        this.gameState = gameState;
+        GameEngine.gameState = gameState;
     }
 }
