@@ -26,7 +26,7 @@ public class PipeGenerator {
         // Remove pipes that have moved off-screen
         for (int i = 0; i < pipes.size(); i++) {
             if (pipes.get(i).getX() < 0) {
-                Pipe remove = pipes.remove(i);
+                final Pipe remove = pipes.remove(i);
             }
         }
 

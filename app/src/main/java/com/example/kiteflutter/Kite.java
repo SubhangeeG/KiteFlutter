@@ -5,7 +5,10 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 public class Kite {
-    private int kiteX, kiteY, currentFrame, velocity;
+    private final int kiteX;
+    private int kiteY;
+    private int currentFrame;
+    private int velocity;
     public static int maxFrame;
     private final Bitmap kiteBitmap;
 

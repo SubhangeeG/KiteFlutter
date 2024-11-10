@@ -63,11 +63,6 @@ public class BitmapBank {
         return background != null ? background.getHeight() : 0;
     }
 
-    // Method to get the width of the pipe images (both top and bottom have the same width)
-    public int getPipeWidth() {
-        return pipeTop != null ? pipeTop.getWidth() : 0; // Assuming both pipes have the same width
-    }
-
     // Method to scale the background image according to screen size
     public Bitmap scaleImage(Bitmap bitmap) {
         float widthHeightRatio = (float) getBackgroundWidth() / getBackgroundHeight();
