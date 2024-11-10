@@ -51,9 +51,7 @@ public class BitmapBank {
     }
 
     // Methods for background image
-    public Bitmap getBackground() {
-        return background;
-    }
+
 
     public int getBackgroundWidth() {
         return background != null ? background.getWidth() : 0;

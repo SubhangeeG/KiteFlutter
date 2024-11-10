@@ -23,21 +23,11 @@ public class Kite {
     }
 
     // Getters and setters for kite's properties
-    public int getVelocity() {
-        return velocity;
-    }
 
     public void setVelocity(int velocity) {
         this.velocity = velocity;
     }
 
-    public int getCurrentFrame() {
-        return currentFrame;
-    }
-
-    public void setCurrentFrame(int currentFrame) {
-        this.currentFrame = currentFrame;
-    }
 
     public int getX() {
         return kiteX;

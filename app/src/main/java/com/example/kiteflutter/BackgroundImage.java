@@ -20,20 +20,6 @@ public class BackgroundImage {
         isPipePassed = false;
     }
 
-    public int getX() {
-        return backgroundImageX;
-    }
 
-    public int getY() {
-        return backgroundImageY;
-    }
-
-    public int getVelocity() {
-        return backgroundImageVelocity;
-    }
-
-    public void setX(int backgroundImageX) {
-        this.backgroundImageX = backgroundImageX;
-    }
 
 }

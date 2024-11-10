@@ -12,7 +12,6 @@ public class AppConstants {
     public static int SCREEN_HEIGHT = 1920;  // Remove final to allow modification
     static int gravity;
     static int VELOCITY_WHEN_JUMPED;
-    public static final int PIPE_GAP = 300; // Set the gap between the pipes
 
     public static void initialization(Context context){
         setScreenSize(context);  // Set dynamic screen size
