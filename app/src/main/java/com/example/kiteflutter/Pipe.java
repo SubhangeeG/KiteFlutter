@@ -4,7 +4,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 public class Pipe {
-    private int x, height;
+    private int x;
+    private final int height;
     private boolean passed;
 
     public Pipe(int startX, int height) {
@@ -36,9 +37,7 @@ public class Pipe {
 
         // Check for collision with top pipe
         if (kiteX + kiteWidth > x && kiteX < x + 100) {
-            if (kiteY < height || kiteY + kiteHeight > AppConstants.SCREEN_HEIGHT - height) {
-                return true;
-            }
+            return kiteY < height || kiteY + kiteHeight > AppConstants.SCREEN_HEIGHT - height;
         }
         return false;
     }
